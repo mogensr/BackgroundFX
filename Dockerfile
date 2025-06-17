@@ -1,10 +1,6 @@
-FROM python:3.9
+# Use an OpenCV-ready base image
+FROM jjanzic/docker-python3-opencv:opencv-4.5.3
 
-# Install system dependencies required for OpenCV
-RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
@@ -17,6 +13,9 @@ COPY . .
 
 # Expose the port the app runs on
 EXPOSE 5000
+
+# Environment variables
+ENV PORT=5000
 
 # Command to run the application
 CMD ["python", "app.py"]
