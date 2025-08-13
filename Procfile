@@ -1,0 +1,1 @@
+web: gradio app.py
