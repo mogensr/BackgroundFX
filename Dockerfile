@@ -2,7 +2,7 @@
 FROM python:3.10-slim
 
 # Step 2: Install system-level dependencies, including Git
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y git build-essential
 
 # Step 3: Set the working directory inside the container
 WORKDIR /app
