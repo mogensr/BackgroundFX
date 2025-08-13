@@ -1,8 +1,8 @@
-# Tell Nixpacks we want a Python environment, version 3.10
-[providers]
-python = "3.10"
+# Set the Python version using the official Nixpacks environment variable
+[variables]
+NIXPACKS_PYTHON_VERSION = "3.10"
 
-# The start command is automatically inferred from the Procfile
-# but we can specify it here for clarity.
+# The start command will be read from the Procfile, so this is not strictly needed
+# but it provides clarity.
 [start]
 cmd = "gradio app.py"
