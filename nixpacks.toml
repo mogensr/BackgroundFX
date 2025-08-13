@@ -1,8 +1,8 @@
-[phases.setup]
-nixPkgs = ["python310", "python310Packages.pip"]
+# Tell Nixpacks we want a Python environment, version 3.10
+[providers]
+python = "3.10"
 
-[phases.install]
-cmds = ["python -m pip install --upgrade pip", "python -m pip install -r requirements.txt"]
-
+# The start command is automatically inferred from the Procfile
+# but we can specify it here for clarity.
 [start]
 cmd = "gradio app.py"
