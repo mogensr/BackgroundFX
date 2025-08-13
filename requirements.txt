@@ -18,4 +18,4 @@ torchvision --extra-index-url https://download.pytorch.org/whl/cu121
 transformers
 
 # SAM2 from its official source
-sam2 @ git+https://github.com/facebookresearch/segment-anything-2.git
+git+https://github.com/facebookresearch/segment-anything-2.git#egg=sam2
