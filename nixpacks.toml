@@ -1,8 +1,14 @@
-# Set the Python version using the official Nixpacks environment variable
-[variables]
-NIXPACKS_PYTHON_VERSION = "3.10"
+[phases.setup]
+# Install Python, pip, and Git at the system level
+nixPkgs = ["python310", "python310Packages.pip", "git"]
 
-# The start command will be read from the Procfile, so this is not strictly needed
-# but it provides clarity.
+[phases.install]
+# First, upgrade pip and install build tools, then install requirements
+cmds = [
+  "python -m pip install --upgrade pip setuptools wheel",
+  "python -m pip install -r requirements.txt"
+]
+
 [start]
+# The command to run the application
 cmd = "gradio app.py"
